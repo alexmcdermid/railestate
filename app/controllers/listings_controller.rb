@@ -19,7 +19,7 @@ class ListingsController < ApplicationController
   def edit
   end
 
-  # POST /listings or /listings.json
+  # POST /listings or /listings.json or /listings/new
   def create
     @listing = Listing.new(listing_params)
 
@@ -38,7 +38,7 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
-        format.html { redirect_to listing_url(@listing), notice: "Listing was successfully updated." }
+        format.html { redirect_to listings_url, notice: "Listing was successfully updated." }
         format.json { render :show, status: :ok, location: @listing }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class ListingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:title, :address, :image_url, :price, :buy_or_rent, :description)
+      params.permit(:title, :address, :image_url, :price, :buy_or_rent, :description)
     end
 end
