@@ -1,0 +1,37 @@
+<div id="<%= dom_id listing %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= listing.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Address:</strong>
+    <%= listing.address %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Image url:</strong>
+    <%= listing.image_url %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Price:</strong>
+    <%= listing.price %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Buy or rent:</strong>
+    <%= listing.buy_or_rent %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= listing.description %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this listing", listing, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this listing', edit_listing_path(listing), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
