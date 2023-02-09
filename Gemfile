@@ -48,6 +48,9 @@ gem "bootsnap", require: false
 # view components
 gem "view_component"
 
+#live-reload
+gem "hotwire-livereload"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
