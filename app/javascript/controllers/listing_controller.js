@@ -7,12 +7,19 @@ export default class extends Controller {
     })
   }
   newListing() {
-    console.log('new')
+    const button = document.getElementById("new_listing_button")
     const frame = document.getElementById("new_listing")
-    console.log(frame)
     const path = this.element.dataset.path
-    console.log(path)
-    frame.src = path
-    frame.reload()
+    if (button.classList.contains("pending")) {
+      button.innerHTML = "New Listing"
+      button.classList.remove('pending')
+      frame.src = ""
+      frame.innerHTML = ""
+    } else {
+      button.innerHTML = "Cancel"
+      button.classList.add('pending')
+      frame.src = path
+      frame.reload()
+    }
   }
 }
