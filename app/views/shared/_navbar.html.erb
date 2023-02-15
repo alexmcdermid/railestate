@@ -5,6 +5,13 @@
   <div class="hidden sm:block sm:ml-6 justify-self-end">
     <div class="flex space-x-4">
       <%= link_to "Listings", root_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+      <% if user_signed_in? %>
+        <%= form_tag destroy_user_session_path, method: :delete, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do %>
+          <%= submit_tag "Sign out" %>
+        <% end %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+      <% end %>
       <%= link_to "About", about_index_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
     </div>
   </div>

@@ -6,14 +6,7 @@
   <div id="title" class="flex justify-between items-center">
     <h1 class="font-bold text-4xl" data-controller="listing">Listings</h1>
     <% if user_signed_in? %>
-      <div>
         <a class="rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" id="new_listing_button" data-controller="listing" data-path="<%= new_listing_path %>">New Listing</a>
-        <%= form_tag destroy_user_session_path, method: :delete do %>
-          <%= submit_tag "Sign out" %>
-        <% end %>
-      </div>
-    <% else %>
-      <%= link_to 'Sign in', new_user_session_path %>
     <% end %>
   </div>
 
