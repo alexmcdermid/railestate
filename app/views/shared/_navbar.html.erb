@@ -1,4 +1,4 @@
-<nav class="bg-gray-800 container max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative flex items-center justify-between h-16">
+<nav class="bg-gray-800 mx-auto px-2 sm:px-6 lg:px-8 2xl:px-24 relative flex items-center justify-between h-16">
   <div class="flex-shrink-0">
     <%= link_to "Railestate", root_path, class: "text-white font-bold text-xl" %>
   </div>
@@ -15,4 +15,34 @@
       <%= link_to "About", about_index_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
     </div>
   </div>
+  <%# data-controller with the name of the controller that will listen to the events on this element %>                                                                              
+  <div data-controller="menu" class="relative inline-block text-center sm:hidden">                                                                                             
+
+  <%# data-action with the event type that will trigger a toggle function on the menu controller %>                                                                                  
+      <div data-action="click->menu#toggle">                                                                                                                                           
+        <button type="button" class="inline-flex justify-center w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" 
+          id="options-menu" aria-haspopup="true" aria-expanded="true">                                                                                                                 
+          <svg viewBox="0 0 100 80" width="40" height="40" fill="white">                                                                                                                            
+              <rect width="100" height="20" rx="8"></rect>                                                                                                                             
+              <rect y="30" width="100" height="20" rx="8"></rect>                                                                                                                      
+              <rect y="60" width="100" height="20" rx="8"></rect>                                                                                                                      
+          </svg>                                                                                                                                                                       
+        </button>                                                                                                                                                                      
+      </div>                                                                                                                                                                           
+
+    <%# data-target - tells the controller which elements it should target %>                                                                                                                         
+      <div data-menu-target="toggleable" class="absolute right-0 hidden mt-2 bg-white shadow-lg w-96 origin-top-right rounded-md ring-1 ring-black ring-opacity-5">                    
+        <div class="py-6" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">                                                                                      
+          <%= link_to "Listings", root_path, class: "block px-4 py-5 text-5xl text-gray-700 hover:bg-gray-100 hover:text-gray-900", role: "menuitem" %>
+          <% if user_signed_in? %>
+            <%= form_tag destroy_user_session_path, method: :delete, class: "block px-4 py-5 text-5xl text-gray-700 hover:bg-gray-100 hover:text-gray-900", role: "menuitem" do %>
+              <%= submit_tag "Sign out" %>
+            <% end %>
+          <% else %>
+            <%= link_to 'Sign in', new_user_session_path, class: "block px-4 py-5 text-5xl text-gray-700 hover:bg-gray-100 hover:text-gray-900", role: "menuitem" %>
+          <% end %>
+          <%= link_to "About", about_index_path, class: "block px-4 py-5 text-5xl text-gray-700 hover:bg-gray-100 hover:text-gray-900", role: "menuitem" %>                                       
+        </div>                                                                                                                                                                         
+      </div>                                                                                                                                                                           
+    </div>
 </nav>
