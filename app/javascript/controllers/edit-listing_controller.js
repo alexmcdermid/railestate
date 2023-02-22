@@ -2,16 +2,18 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {  
   connect() {
+    console.log('edit listing controller connected')
     this.element.addEventListener("click", () => {
-      this.newListing()
+      this.editListing()
     })
   }
-  newListing() {
-    const button = document.getElementById("new_listing_button")
-    const frame = document.getElementById("new_listing")
+  editListing() {
+    const button = document.getElementsByClassName("edit_listing_button_"+this.element.id)[0]
+    const frame = document.getElementById("edit_listing_"+this.element.id)
     const path = this.element.dataset.path
+    console.log(path)
     if (button.classList.contains("pending")) {
-      button.innerHTML = "New Listing"
+      button.innerHTML = "Edit Listing"
       button.classList.remove('pending')
       frame.src = ""
       frame.innerHTML = ""
