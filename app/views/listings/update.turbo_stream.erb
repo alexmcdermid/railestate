@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "listing_#{@listing.id}" do %>
+  <%= render(ListingComponent.new(listing: @listing, user_signed_in: @user_signed_in)) %>
+<% end %>

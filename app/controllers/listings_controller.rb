@@ -35,10 +35,10 @@ class ListingsController < ApplicationController
 
   # PATCH/PUT /listings/1 or /listings/1.json
   def update
+    @user_signed_in = user_signed_in?
     respond_to do |format|
       if @listing.update(listing_params)
-        format.html { redirect_to listings_url, notice: "Listing was successfully updated." }
-        format.json { render :show, status: :ok, location: @listing }
+        format.turbo_stream
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
