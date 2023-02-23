@@ -1,32 +1,31 @@
-<%= turbo_frame_tag dom_id(@listing), class: "" do %>
+<%= turbo_frame_tag dom_id(@listing) do %>
+
+
+  <p class="my-5">
+    <strong class="font-medium mb-1">Title:</strong> <%= @listing.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="font-medium mb-1">Address:</strong> <%= @listing.address %>
+  </p>
+
+  <p class="my-5">
+    <strong class="font-medium mb-1">Image url:</strong> <img src="<%= @listing.image_url %>">
+  </p>
+
+  <p class="my-5">
+    <strong class="font-medium mb-1">Price:</strong> <%= @listing.price %>
+  </p>
+
+  <p class="my-5">
+    <strong class="font-medium mb-1">Description:</strong> <%= @listing.description %>
+  </p>
+
   <% if @user_signed_in %>
-      <a class="rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium edit_listing_button_<%= @listing.id %>" id="<%= @listing.id %>" data-controller="edit-listing" data-path="<%= edit_listing_path(id: @listing.id) %>">Edit Listing</a>
+    <div class="flex justify-center">
+      <a class="rounded-lg cursor-pointer py-3 px-5 bg-blue-600 text-white block font-medium edit_listing_button_<%= @listing.id %>" id="<%= @listing.id %>" data-controller="edit-listing" data-path="<%= edit_listing_path(id: @listing.id) %>">Edit Listing</a>
+    </div>
   <% end %>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= @listing.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Address:</strong>
-    <%= @listing.address %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Image url:</strong>
-    <img src="<%= @listing.image_url %>">
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Price:</strong>
-    <%= @listing.price %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= @listing.description %>
-  </p>
   
   <%= turbo_frame_tag dom_id(@listing, :edit) %>
 <% end %>

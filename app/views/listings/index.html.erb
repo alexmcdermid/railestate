@@ -8,13 +8,13 @@
   <div id="title" class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Listings</h1>
     <% if user_signed_in? %>
-        <a class="rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" id="new_listing_button" data-controller="new-listing" data-path="<%= new_listing_path %>">New Listing</a>
+        <a class="rounded-lg cursor-pointer py-3 px-5 bg-blue-600 text-white block font-medium" id="new_listing_button" data-controller="new-listing" data-path="<%= new_listing_path %>">New Listing</a>
     <% end %>
   </div>
 
   <%= turbo_frame_tag id="new_listing" %>
 
-  <%= turbo_frame_tag id="listings", class: "grid gap-y-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" do %>
+  <%= turbo_frame_tag id="listings", class: "grid gap-4 lg:gap-6 xl:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" do %>
     <% @listings.each do |listing| %>
       <%= render(ListingComponent.new(listing: listing, user_signed_in: user_signed_in?)) %>
     <% end %>
