@@ -24,10 +24,10 @@ class ListingsController < ApplicationController
   # POST /listings or /listings.json or /listings/new
   def create
     @listing = Listing.new(listing_params)
-
+    @user_signed_in = user_signed_in?
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to listings_url, notice: "Listing was successfully created." }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
       end
