@@ -27,7 +27,7 @@
 
   <div class="my-5">
     <%= form.label :image_url %>
-    <%= form.text_field :image_url, value: @listing_object.image_url, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
+    <%= form.text_field :image_url, value: @listing_object.image_url, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
   </div>
 
   <div class="my-5">
@@ -45,7 +45,7 @@
     <%= form.check_box :buy_or_rent, value: @listing_object.buy_or_rent, class: "mt-2 h-5 w-5" %>
   </div>
 
-  <div class="inline" data-controller="submit">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer", id: "listing-form-submit" %>
+  <div class="flex justify-center" data-controller="submit">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium cursor-pointer", id: "listing-form-submit" %>
   </div>
 <% end %>

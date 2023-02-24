@@ -5,7 +5,9 @@
     <%= @listing.title %>
   </p>
 
-  <img src="<%= @listing.image_url %>">
+  <% if @listing.image_url.presence %>
+    <img src="<%= @listing.image_url %>">
+  <% end %>
 
   <p class="my-5">
     <%= @listing.description %>
@@ -20,11 +22,11 @@
   <% end %>
 
   <% if @user_signed_in %>
-    <div class="flex justify-center">
+    <div class="flex justify-between">
     <%= form_with(model: @listing, local: true, method: :delete) do |form| %>
-      <%= form.submit "Delete", class: "text-white py-2 px-4 rounded", style: "background-color: red;" %>
+      <%= form.submit "Delete", class: "text-white py-2 px-4 rounded cursor-pointer", style: "background-color: red;" %>
     <% end %>
-      <a class="rounded-lg cursor-pointer py-3 px-5 bg-blue-600 text-white block font-medium edit_listing_button_<%= @listing.id %>" id="<%= @listing.id %>" data-controller="edit-listing" data-path="<%= edit_listing_path(id: @listing.id) %>">Edit Listing</a>
+      <a class="text-white py-2 px-4 rounded cursor-pointer bg-blue-600 edit_listing_button_<%= @listing.id %>" id="<%= @listing.id %>" data-controller="edit-listing" data-path="<%= edit_listing_path(id: @listing.id) %>">Edit Listing</a>
     </div>
   <% end %>
   
