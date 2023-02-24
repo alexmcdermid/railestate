@@ -2,24 +2,22 @@
 
 
   <p class="my-5">
-    <strong class="font-medium mb-1">Title:</strong> <%= @listing.title %>
+    <%= @listing.title %>
+  </p>
+
+  <img src="<%= @listing.image_url %>">
+
+  <p class="my-5">
+    <%= @listing.description %>
   </p>
 
   <p class="my-5">
-    <strong class="font-medium mb-1">Address:</strong> <%= @listing.address %>
+    <%= @listing.address %>
   </p>
 
-  <p class="my-5">
-    <strong class="font-medium mb-1">Image url:</strong> <img src="<%= @listing.image_url %>">
-  </p>
-
-  <p class="my-5">
-    <strong class="font-medium mb-1">Price:</strong> <%= @listing.price %>
-  </p>
-
-  <p class="my-5">
-    <strong class="font-medium mb-1">Description:</strong> <%= @listing.description %>
-  </p>
+  <% if @listing.price.presence %>
+   <%= @listing.price %> <% if @listing.buy_or_rent == false %> $ <% else %> $/mo <% end %>
+  <% end %>
 
   <% if @user_signed_in %>
     <div class="flex justify-center">
