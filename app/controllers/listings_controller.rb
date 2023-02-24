@@ -18,6 +18,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+    @listing = Listing.find(params[:id])
   end
 
   # POST /listings or /listings.json or /listings/new

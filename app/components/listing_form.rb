@@ -5,6 +5,6 @@ class ListingForm < ViewComponent::Base
 
   def initialize(listing:)
     super
-    @lisitng_object = listing
+    @listing_object = listing
   end
 end

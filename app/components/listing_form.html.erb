@@ -4,11 +4,11 @@
   }
 </style>
 <%= form_with(model: @listing, class: "contents") do |form| %>
-  <% if @lisitng_object.errors.any? %>
+  <% if @listing_object.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(@lisitng_object.errors.count, "error") %> prohibited this listing from being saved:</h2>
+      <h2><%= pluralize(@listing_object.errors.count, "error") %> prohibited this listing from being saved:</h2>
       <ul>
-        <% @lisitng_object.errors.each do |error| %>
+        <% @listing_object.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -17,31 +17,32 @@
 
   <div class="my-5">
     <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
+    <%= form.text_field :title, value: @listing_object.title, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
   </div>
 
   <div class="my-5">
     <%= form.label :description %>
-    <%= form.text_field :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
+    <%= form.text_field :description, value: @listing_object.description, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
   </div>
 
   <div class="my-5">
     <%= form.label :image_url %>
-    <%= form.text_field :image_url, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
+    <%= form.text_field :image_url, value: @listing_object.image_url, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
   </div>
 
   <div class="my-5">
     <%= form.label :address %>
-    <%= form.text_field :address, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
+    <%= form.text_field :address, value: @listing_object.address, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
   </div>
 
   <div class="my-5">
     <%= form.label :price %>
-    <%= form.text_field :price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
+    <%= form.text_field :price, value: @listing_object.price, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :Renting? %> <%= form.check_box :buy_or_rent, class: "mt-2 h-5 w-5" %>
+    <%= form.label :Renting? %> 
+    <%= form.check_box :buy_or_rent, value: @listing_object.buy_or_rent, required: true, class: "mt-2 h-5 w-5" %>
   </div>
 
   <div class="inline">
