@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :listings
   root 'listings#index'
   post 'listings/new', to: 'listings#create'
-  post 'listings/:id/edit',to: 'listings#update', as: 'update_listing'
+  post 'listing/:id/destroy', to: 'listing#destroy', as: 'destroy_listing'
+  post 'listings/:id/edit', to: 'listings#update', as: 'update_listing'
   devise_scope :user do
     get '/sign_in' => 'devise/sessions#new', :as => :login
   end

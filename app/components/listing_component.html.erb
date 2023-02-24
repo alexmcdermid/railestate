@@ -21,6 +21,9 @@
 
   <% if @user_signed_in %>
     <div class="flex justify-center">
+    <%= form_with(model: @listing, local: true, method: :delete) do |form| %>
+      <%= form.submit "Delete", class: "text-white py-2 px-4 rounded", style: "background-color: red;" %>
+    <% end %>
       <a class="rounded-lg cursor-pointer py-3 px-5 bg-blue-600 text-white block font-medium edit_listing_button_<%= @listing.id %>" id="<%= @listing.id %>" data-controller="edit-listing" data-path="<%= edit_listing_path(id: @listing.id) %>">Edit Listing</a>
     </div>
   <% end %>
