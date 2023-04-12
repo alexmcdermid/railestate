@@ -83,3 +83,6 @@ end
 
 # used for admin users profiles
 gem "devise"
+
+# aws s3 sdk
+gem "aws-sdk-s3"

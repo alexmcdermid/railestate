@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'about/index'
   devise_for :users, controllers: { sessions: 'sessions' }
   resources :listings
+  resources :photos
   root 'listings#index'
   post 'listings/new', to: 'listings#create'
   post 'listing/:id/destroy', to: 'listing#destroy', as: 'destroy_listing'

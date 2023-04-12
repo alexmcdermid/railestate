@@ -12,7 +12,11 @@
   <div id="title" class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Listings</h1>
     <% if user_signed_in? %>
-        <a class="rounded-lg cursor-pointer py-3 px-5 bg-blue-600 text-white block font-medium" id="new_listing_button" data-controller="new-listing" data-path="<%= new_listing_path %>">New Listing</a>
+      <%= form_with(model: @photo, url: photos_path, method: :post, local: true, multipart: true) do |form| %>
+        <%= form.file_field :image %>
+        <%= form.submit 'Upload' %>
+      <% end %>
+      <a class="rounded-lg cursor-pointer py-3 px-5 bg-blue-600 text-white block font-medium" id="new_listing_button" data-controller="new-listing" data-path="<%= new_listing_path %>">New Listing</a>
     <% end %>
   </div>
 
