@@ -1,25 +1,31 @@
 <%= turbo_frame_tag dom_id(@listing) do %>
-
-
-  <p class="my-5">
-    <%= @listing.title %>
-  </p>
-
-  <% if @listing.image_url.presence %>
-    <img src="<%= @listing.image_url %>">
+  <% unless params[:action] == 'show' %>
+    <div data-controller="redirect" data-action="click->redirect#goToLink" data-url="<%= listing_path(@listing) %>" class="cursor-pointer">
+  <% else %>
+    <div style="cursor: default">
   <% end %>
+    <% unless params[:action] == 'show' %>
+      <p class="my-5">
+        <%= @listing.title %>
+      </p>
+    <% end %>
 
-  <p class="my-5">
-    <%= @listing.description %>
-  </p>
+    <% if @listing.image_url.presence %>
+      <img src="<%= @listing.image_url %>">
+    <% end %>
 
-  <p class="my-5">
-    <%= @listing.address %>
-  </p>
+    <p class="my-5">
+      <%= @listing.description %>
+    </p>
 
-  <% if @listing.price.presence %>
-   <%= @listing.price %> <% if @listing.buy_or_rent == false %> $ <% else %> $/mo <% end %>
-  <% end %>
+    <p class="my-5">
+      <%= @listing.address %>
+    </p>
+
+    <% if @listing.price.presence %>
+    <%= @listing.price %> <% if @listing.buy_or_rent == false %> $ <% else %> $/mo <% end %>
+    <% end %>
+  </div>
 
   <% if @user_signed_in %>
     <div class="flex justify-between">
