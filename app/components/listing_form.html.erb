@@ -26,8 +26,17 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url, value: @listing_object.image_url, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
+    <div class="my-5" data-controller="photo-upload" data-photo-upload-url="<%= photos_path %>" data-photo-upload-csrf-token="<%= form_authenticity_token %>" data-photo-upload-listing-id="<%= @listing_object.id %>">
+      <span id="file-name-span"></span>
+      <input type="file" name="photo[image]" data-photo-upload-target="input">
+      <input type="hidden" name="image_url" id="listing_image_url">
+      <button type="button" data-action="click->photo-upload#chooseFile" class="bg-blue-600 text-white px-4 py-2 rounded-lg cursor-pointer">
+        Choose File
+      </button>
+      <button type="button" data-action="click->photo-upload#uploadFile" class="bg-green-600 text-white px-4 py-2 rounded-lg cursor-pointer">
+        Upload
+      </button>
+    </div>
   </div>
 
   <div class="my-5">
