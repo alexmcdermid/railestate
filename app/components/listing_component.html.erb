@@ -33,10 +33,14 @@
 
   <% if @user_signed_in %>
     <div class="flex justify-between">
-    <%= form_with(model: @listing, local: true, method: :delete) do |form| %>
-      <%= form.submit "Delete", class: "text-white py-2 px-4 rounded cursor-pointer", style: "background-color: red;" %>
+    <% if @listing.user_id == @user.id %>
+      <%= form_with(model: @listing, local: true, method: :delete) do |form| %>
+        <%= form.submit "Delete", class: "text-white py-2 px-4 rounded cursor-pointer", style: "background-color: red;" %>
+      <% end %>
     <% end %>
+    <% if @listing.user_id == @user.id %>
       <a class="text-white py-2 px-4 rounded cursor-pointer bg-blue-600 edit_listing_button_<%= @listing.id %>" id="<%= @listing.id %>" data-controller="edit-listing" data-path="<%= edit_listing_path(id: @listing.id) %>">Edit Listing</a>
+    <% end %>
     </div>
   <% end %>
   

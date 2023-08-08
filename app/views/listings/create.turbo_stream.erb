@@ -1,3 +1,3 @@
 <%= turbo_stream.append "listings" do %>
-  <%= render(ListingComponent.new(listing: @listing, user_signed_in: @user_signed_in)) %>
+  <%= render(ListingComponent.new(listing: @listing, user_signed_in: @user_signed_in, user: @user)) %>
 <% end %>
