@@ -4,28 +4,32 @@
   <% else %>
     <div style="cursor: default">
   <% end %>
-    <% unless params[:action] == 'show' %>
+      <% unless params[:action] == 'show' %>
+        <p class="my-5">
+          <%= @listing.title %>
+        </p>
+      <% end %>
+
+      <% if @listing.image_url.present? %>
+        <img src="<%= @listing.get_image_url %>" alt="Listing Image">
+      <% end %>
+
       <p class="my-5">
-        <%= @listing.title %>
+        <%= @listing.description %>
       </p>
-    <% end %>
 
-  <% if @listing.image_url.present? %>
-    <img src="<%= @listing.get_image_url %>" alt="Listing Image">
-  <% end %>
+      <p class="my-5">
+        <%= @listing.address %>
+      </p>
 
-    <p class="my-5">
-      <%= @listing.description %>
-    </p>
+      <% if @listing.price.presence %>
+        <%= @listing.price %> <% if @listing.buy_or_rent == false %> $ <% else %> $/mo <% end %>
+      <% end %>
 
-    <p class="my-5">
-      <%= @listing.address %>
-    </p>
-
-    <% if @listing.price.presence %>
-    <%= @listing.price %> <% if @listing.buy_or_rent == false %> $ <% else %> $/mo <% end %>
-    <% end %>
-  </div>
+      <p class="my-5">
+        Posted by: <%= @listing_creator.email %>
+      </p>
+    </div>
 
   <% if @user_signed_in %>
     <div class="flex justify-between">

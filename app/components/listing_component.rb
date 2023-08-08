@@ -7,5 +7,6 @@ class ListingComponent < ViewComponent::Base
     super
     @listing = listing
     @user_signed_in = user_signed_in
+    @listing_creator = User.find(listing.user_id)
   end
 end
