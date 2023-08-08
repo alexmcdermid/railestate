@@ -39,14 +39,35 @@ export default class extends Controller {
         if (response.ok) {
           const inputField = document.querySelector('#listing_image_url');
           inputField.value = data.url;
+          this.flashMessage("Upload successful!", "success");
         } else {
-          alert(data.error); 
+          this.flashMessage(data.error, "error");
           console.log(data.error)
         }
       });
     })
     .catch(error => {
       console.error("Request failed:", error);
+      this.flashMessage("An unexpected error occurred.", "error");
     });    
+  }
+
+  flashMessage(message, type = "success") {
+    const alertDiv = document.getElementById('alert');
+    
+    alertDiv.className = 'py-2 px-3 mb-5 font-medium rounded-lg inline-block';
+  
+    if (type === "success") {
+      alertDiv.classList.add('bg-green-50', 'text-green-500');
+    } else if (type === "error") {
+      alertDiv.classList.add('bg-red-50', 'text-red-500');
+    }
+  
+    alertDiv.textContent = message;
+    alertDiv.classList.remove('hidden');
+  
+    setTimeout(() => {
+      alertDiv.classList.add('hidden');
+    }, 3000);
   }
 }
