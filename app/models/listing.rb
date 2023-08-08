@@ -1,4 +1,6 @@
 class Listing < ApplicationRecord
+  belongs_to :user
+  
   def get_image_url
     if self.image_url.present?
       s3 = Aws::S3::Resource.new(
