@@ -35,13 +35,18 @@ export default class extends Controller {
       },
     })
     .then(response => {
-      console.log(response.status)
-      if (response.ok) {
-        response.json().then(data => {
-          const inputField = document.querySelector('#listing_image_url')
-          inputField.value = data.url
-        })
-        } 
+      return response.json().then(data => {
+        if (response.ok) {
+          const inputField = document.querySelector('#listing_image_url');
+          inputField.value = data.url;
+        } else {
+          alert(data.error); 
+          console.log(data.error)
+        }
+      });
     })
+    .catch(error => {
+      console.error("Request failed:", error);
+    });    
   }
 }
