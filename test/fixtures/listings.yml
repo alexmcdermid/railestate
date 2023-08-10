@@ -1,17 +1,13 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
-  address: MyString
-  image_url: MyString
-  price: 9.99
-  buy_or_rent: false
-  description: MyString
+  title: Sample Listing One
+  address: 123 One St, Sample City
+  price: 1000.0
+  buy_or_rent: true
+  description: A nice place.
 
 two:
-  title: MyString
-  address: MyString
-  image_url: MyString
-  price: 9.99
+  title: Sample Listing Two
+  address: 123 Two St, Sample City
+  price: 2000.0
   buy_or_rent: false
-  description: MyString
+  description: Another nice place.

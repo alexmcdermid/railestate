@@ -1,7 +1,10 @@
-require "test_helper"
+require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should be valid" do
+    user = users(:one)
+    assert user.valid?
+  end
+
+  # Additional tests as needed...
 end
