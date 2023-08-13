@@ -1,0 +1,15 @@
+one:
+  title: Sample Listing One
+  address: 123 One St, Sample City
+  price: 1000.0
+  buy_or_rent: true
+  description: A nice place.
+  user: one
+
+two:
+  title: Sample Listing Two
+  address: 123 Two St, Sample City
+  price: 2000.0
+  buy_or_rent: false
+  description: Another nice place.
+  user: two

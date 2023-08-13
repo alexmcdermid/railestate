@@ -10,4 +10,10 @@ RSpec.describe Listing, type: :model do
     listing = create(:listing, image_url: nil)
     expect(listing.get_image_url).to be_nil
   end
+
+  # also test using fixtures in rspec
+  it "should be valid" do
+    listing = listings(:one)
+    assert listing.valid?
+  end
 end

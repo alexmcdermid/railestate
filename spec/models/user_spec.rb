@@ -11,4 +11,10 @@ RSpec.describe User, type: :model do
   #   user = build(:user, email: "notanemail")
   #   expect(user).not_to be_valid
   # end
+
+  # also test using fixtures in rspec
+  it "should be valid" do
+    user = users(:one)
+    assert user.valid?
+  end
 end
