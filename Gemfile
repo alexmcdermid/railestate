@@ -91,5 +91,10 @@ end
 # used for admin users profiles
 gem "devise"
 
+# google oauth
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
+
 # aws s3 sdk
 gem "aws-sdk-s3"
