@@ -2,7 +2,11 @@
 
 Rails.application.routes.draw do
   get 'about/index'
-  devise_for :users, controllers: { sessions: 'sessions' }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   resources :listings
   resources :photos
   root 'listings#index'
