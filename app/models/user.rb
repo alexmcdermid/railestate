@@ -8,11 +8,31 @@ class User < ApplicationRecord
   has_many :listings, dependent: :destroy
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.full_name = auth.info.name # assuming the user model has a name
-      user.avatar_url = auth.info.image # assuming the user model has an image
+    # Try to find a user first by provider and uid
+    user = where(provider: auth.provider, uid: auth.uid).first
+
+    # If no user is found, find by email
+    unless user
+      user = where(email: auth.info.email).first
+
+      # If user is found, update their provider and uid
+      if user
+        user.update(provider: auth.provider, uid: auth.uid)
+      end
     end
+
+    # Create a new user if neither is found
+    unless user
+      user = create(
+        email: auth.info.email,
+        password: Devise.friendly_token[0, 20],
+        provider: auth.provider,
+        uid: auth.uid,
+        full_name: auth.info.name,
+        avatar_url: auth.info.image
+      )
+    end
+
+    user
   end
 end
