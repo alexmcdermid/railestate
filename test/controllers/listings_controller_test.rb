@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class ListingsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @listing = listings(:one)
   end
 
-  test 'should get index' do
+  test "should get index" do
     get listings_url
     assert_response :success
   end
 
-  test 'should get new' do
+  test "should get new" do
     get new_listing_url
     assert_response :found
   end
@@ -25,12 +25,12 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
   #   assert_redirected_to listing_url(Listing.last)
   # end
 
-  test 'should show listing' do
+  test "should show listing" do
     get listing_url(@listing)
     assert_response :success
   end
 
-  test 'should get edit' do
+  test "should get edit" do
     get edit_listing_url(@listing)
     assert_response :found
   end

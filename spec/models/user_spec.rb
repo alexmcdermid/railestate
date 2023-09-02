@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
-  it 'should create a valid user' do
+  it "should create a valid user" do
     user = build(:user)
     expect(user).to be_valid
   end
@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
   # end
 
   # also test using fixtures in rspec
-  it 'should be valid' do
+  it "should be valid" do
     user = users(:one)
     assert user.valid?
   end

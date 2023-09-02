@@ -14,37 +14,37 @@
 
 ActiveRecord::Schema[7.0].define(version: 20_230_901_205_012) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'listings', force: :cascade do |t|
-    t.string 'title'
-    t.string 'address'
-    t.string 'image_url'
-    t.decimal 'price'
-    t.boolean 'buy_or_rent'
-    t.string 'description'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.bigint 'user_id', null: false
-    t.index ['user_id'], name: 'index_listings_on_user_id'
+  create_table "listings", force: :cascade do |t|
+    t.string "title"
+    t.string "address"
+    t.string "image_url"
+    t.decimal "price"
+    t.boolean "buy_or_rent"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.integer 'file_uploads_count', default: 0
-    t.string 'full_name'
-    t.string 'uid'
-    t.string 'avatar_url'
-    t.string 'provider'
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "file_uploads_count", default: 0
+    t.string "full_name"
+    t.string "uid"
+    t.string "avatar_url"
+    t.string "provider"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key 'listings', 'users'
+  add_foreign_key "listings", "users"
 end

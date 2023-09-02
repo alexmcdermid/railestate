@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class ListingTest < ActiveSupport::TestCase
-  test 'should be valid' do
+  test "should be valid" do
     listing = listings(:one)
     assert listing.valid?
   end
