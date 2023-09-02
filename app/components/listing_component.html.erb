@@ -11,7 +11,7 @@
       <% end %>
 
       <% if @listing.image_url.present? %>
-        <img src="<%= @listing.image_url %>" alt="Listing Image">
+        <img src="<%= @listing.fetch_presigned_image_url_aws %>" alt="Listing Image">
       <% end %>
 
       <p class="my-5">

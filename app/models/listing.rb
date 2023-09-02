@@ -3,7 +3,7 @@
 class Listing < ApplicationRecord
   belongs_to :user
 
-  def image_url
+  def fetch_presigned_image_url_aws
     return unless image_url.present?
 
     s3 = Aws::S3::Resource.new(

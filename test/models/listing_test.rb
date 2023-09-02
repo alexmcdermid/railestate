@@ -10,7 +10,7 @@ class ListingTest < ActiveSupport::TestCase
 
   # test "should generate a presigned URL if image_url is present" do
   #   listing = listings(:one)
-  #   assert_not_nil listing.image_url
+  #   assert_not_nil listing.fetch_presigned_image_url_aws
   # end
 
   # Additional tests as needed...

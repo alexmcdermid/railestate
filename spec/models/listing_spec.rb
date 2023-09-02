@@ -10,7 +10,7 @@ RSpec.describe Listing, type: :model do
 
   it "should return nil if image_url is absent" do
     listing = create(:listing, image_url: nil)
-    expect(listing.image_url).to be_nil
+    expect(listing.fetch_presigned_image_url_aws).to be_nil
   end
 
   # also test using fixtures in rspec
