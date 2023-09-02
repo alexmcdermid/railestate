@@ -1,6 +1,6 @@
 # Commonly used screens these days easily fit more than 80 characters.
 Metrics/LineLength:
-  Max: 120
+  Max: 250
 
 # Too short methods lead to extraction of single-use methods, which can make
 # the code easier to read (by naming things), but can also clutter the class
@@ -10,6 +10,18 @@ Metrics/MethodLength:
 # The guiding principle of classes is SRP, SRP can't be accurately measured by LoC
 Metrics/ClassLength:
   Max: 1500
+
+Metrics/BlockLength:
+  Max: 50
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Metrics/AbcSize:
+  Max: 25
 
 # No space makes the method definition shorter and differentiates
 # from a regular assignment.
