@@ -2,13 +2,17 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {  
   connect() {
-    this.removeAlert()
+    this.removeAlert('notice')
+    this.removeAlert('success')
+    this.removeAlert('alert')
   }
   
-  removeAlert() {
-    const notice = document.getElementById('notice')
-    setTimeout(function() {
-      notice.classList.add('hidden')
-    }, 5000);
+  removeAlert(elementId) {
+    const element = document.getElementById(elementId)
+    if (element) {
+      setTimeout(function() {
+        element.classList.add('hidden')
+      }, 5000);
+    }
   }
 }
