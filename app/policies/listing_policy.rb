@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ListingPolicy < ApplicationPolicy
   def edit?
     record.user == user
@@ -10,6 +12,7 @@ class ListingPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
   class Scope < Scope
     def resolve
       scope.all

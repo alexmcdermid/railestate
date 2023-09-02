@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class ListingsController < ApplicationController
   include Pundit
-  
-  before_action :set_listing, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: %i[ new create edit destroy ]
+
+  before_action :set_listing, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new create edit destroy]
   before_action :set_user
 
   # GET /listings or /listings.json
@@ -59,23 +61,24 @@ class ListingsController < ApplicationController
     @listing.destroy
 
     respond_to do |format|
-      format.html { redirect_to listings_url, notice: "Listing was successfully destroyed." }
+      format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_listing
-      @listing = Listing.find(params[:id])
-    end
 
-    def set_user
-      @user = current_user
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def listing_params
-      params.permit(:title, :address, :image_url, :price, :buy_or_rent, :description)
-    end
+  def set_user
+    @user = current_user
+  end
+
+  # Only allow a list of trusted parameters through.
+  def listing_params
+    params.permit(:title, :address, :image_url, :price, :buy_or_rent, :description)
+  end
 end

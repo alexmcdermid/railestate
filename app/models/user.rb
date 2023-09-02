@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -16,22 +18,18 @@ class User < ApplicationRecord
       user = where(email: auth.info.email).first
 
       # If user is found, update their provider and uid
-      if user
-        user.update(provider: auth.provider, uid: auth.uid)
-      end
+      user&.update(provider: auth.provider, uid: auth.uid)
     end
 
     # Create a new user if neither is found
-    unless user
-      user = create(
-        email: auth.info.email,
-        password: Devise.friendly_token[0, 20],
-        provider: auth.provider,
-        uid: auth.uid,
-        full_name: auth.info.name,
-        avatar_url: auth.info.image
-      )
-    end
+    user ||= create(
+      email: auth.info.email,
+      password: Devise.friendly_token[0, 20],
+      provider: auth.provider,
+      uid: auth.uid,
+      full_name: auth.info.name,
+      avatar_url: auth.info.image
+    )
 
     user
   end
