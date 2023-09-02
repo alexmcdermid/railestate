@@ -19,7 +19,3 @@ Railestate is a web application built with Ruby on Rails 7, serving as a playgro
 - **JavaScript**: Stimulus
 - **SPA Interactivity**: Turbo
 - **Image Storage**: AWS
-
-## License
-
-Railestate is licensed under [MIT License](LICENSE.md).
