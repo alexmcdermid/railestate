@@ -28,7 +28,7 @@
   <div class="my-5">
     <label>Image Upload (Single Image)</label>
     <div id="my-dropzone" class="dropzone mt-2 bg-gray-800" data-controller="photo-upload" data-photo-upload-url="<%= photos_path %>" data-photo-upload-csrf-token="<%= form_authenticity_token %>" data-photo-upload-listing-id="<%= @listing_object.id %>"></div>
-    <input type="hidden" name="image_url" id="listing_image_url">
+    <%= form.hidden_field :image_url, value: @listing_object.image_url, id: 'listing_image_url' %>
   </div>
 
   <div class="my-5">
