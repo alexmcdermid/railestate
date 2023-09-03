@@ -27,7 +27,11 @@ export default class extends Controller {
     });
 
     this.dropzone.on("error", (file, errorMessage) => {
-      this.flashMessage(errorMessage, "error");
+      if (errorMessage.error) {
+        this.flashMessage(errorMessage.error, "error");
+      } else {
+        this.flashMessage(errorMessage, "error");
+      }
     });
   }
 
@@ -40,7 +44,7 @@ export default class extends Controller {
   
     alertDiv.className = "py-2 px-3 mb-5 font-medium rounded-lg inline-block";
   
-    let duration; // Variable to hold the duration the message should stay on screen
+    let duration;
   
     if (type === "success") {
       alertDiv.classList.add("bg-green-50", "text-green-500");
