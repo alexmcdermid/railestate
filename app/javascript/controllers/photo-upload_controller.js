@@ -7,6 +7,7 @@ export default class extends Controller {
     this.dropzone = new Dropzone(this.element, {
       url: this.data.get("url"),
       paramName: 'photo[image]',
+      maxFiles: 1,
       headers: {
         "X-CSRF-Token": this.data.get("csrfToken")
       }
