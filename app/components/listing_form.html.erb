@@ -33,7 +33,7 @@
 
   <div class="my-5">
     <%= form.label :address %>
-    <%= form.text_field :address, value: @listing_object.address, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class" %>
+    <%= form.text_field :address, value: @listing_object.address, required: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full input-class", autocomplete: "street-address" %>
   </div>
 
   <div class="my-5">
