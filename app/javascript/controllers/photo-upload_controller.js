@@ -37,20 +37,24 @@ export default class extends Controller {
 
   flashMessage(message, type = "success") {
     const alertDiv = document.getElementById("alert");
-
+  
     alertDiv.className = "py-2 px-3 mb-5 font-medium rounded-lg inline-block";
-
+  
+    let duration; // Variable to hold the duration the message should stay on screen
+  
     if (type === "success") {
       alertDiv.classList.add("bg-green-50", "text-green-500");
+      duration = 5000;
     } else if (type === "error") {
       alertDiv.classList.add("bg-red-50", "text-red-500");
+      duration = 10000; 
     }
-
+  
     alertDiv.textContent = message;
     alertDiv.classList.remove("hidden");
-
+  
     setTimeout(() => {
       alertDiv.classList.add("hidden");
-    }, 3000);
+    }, duration);
   }
 }
