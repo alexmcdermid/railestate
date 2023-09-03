@@ -28,6 +28,10 @@ Railestate is a web application built with Ruby on Rails 7, serving as a playgro
 
 Docker allows you to encapsulate all the dependencies and configurations into a single container, ensuring that the application runs consistently across various environments.
 
+### Setting up Environment Variables
+
+Before running the application, create a `.env` file based on the provided `.env.sample` and fill in the required values.
+
 ### Running Locally Using Docker
 
 1. **Build the Docker Image**
@@ -47,5 +51,3 @@ Docker allows you to encapsulate all the dependencies and configurations into a 
 
 4. **Stopping the Container**
     To halt the running container, find the container ID with the `docker ps` command, then stop it using `docker stop <CONTAINER_ID>`.
-
-By following these steps, you can effortlessly run Railestate locally, allowing you to explore all its features without manual setup of individual components and dependencies.
