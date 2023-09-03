@@ -26,7 +26,7 @@
   </div>
 
   <div class="my-5">
-    <label>Image Upload (Single Image)</label>
+    <%= form.label :image_upload %> <span>(single image)</span>
     <div id="my-dropzone" class="dropzone mt-2 bg-gray-800" data-controller="photo-upload" data-photo-upload-url="<%= photos_path %>" data-photo-upload-csrf-token="<%= form_authenticity_token %>" data-photo-upload-listing-id="<%= @listing_object.id %>"></div>
     <%= form.hidden_field :image_url, value: @listing_object.image_url, id: 'listing_image_url' %>
   </div>
@@ -47,6 +47,7 @@
   </div>
 
   <div class="flex justify-center" data-controller="submit">
+    <%= form.label :submit, hidden: true %>
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium cursor-pointer", id: "listing-form-submit" %>
   </div>
 <% end %>
