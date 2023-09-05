@@ -37,7 +37,15 @@ module Users
 
     def github
       user = User.from_omniauth(auth)
-      signin_and_redirect user
+      if user.present?
+        sign_out_all_scopes
+        flash[:success] = t "devise.omniauth_callbacks.success", kind: "GitHub"
+        sign_in_and_redirect user, event: :authentication
+      else
+        flash[:alert] =
+          t "devise.omniauth_callbacks.failure", kind: "GitHub", reason: "#{auth.info.email} is not authorized."
+        redirect_to new_user_session_path
+      end
     end
 
     protected
