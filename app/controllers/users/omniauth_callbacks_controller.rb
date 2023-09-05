@@ -35,6 +35,11 @@ module Users
       end
     end
 
+    def github
+      user = User.from_omniauth(auth)
+      signin_and_redirect user
+    end
+
     protected
 
     def after_omniauth_failure_path_for(_scope)
