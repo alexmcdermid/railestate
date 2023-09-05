@@ -7,3 +7,28 @@
 #user_password_confirmation{
   color: black;
 }
+@keyframes floatDown {
+  from {
+    top: 0;
+  }
+  to {
+    top: 5rem;
+  }
+}
+
+@keyframes floatUp {
+  from {
+    top: 5rem;
+  }
+  to {
+    top: 0;
+  }
+}
+
+.animate-float-down {
+  animation: floatDown 1s ease-in-out;
+}
+
+.animate-float-up {
+  animation: floatUp 1s ease-in-out;
+}
