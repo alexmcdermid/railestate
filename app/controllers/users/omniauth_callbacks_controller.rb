@@ -3,7 +3,7 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # You should configure your model like this:
-    # devise :omniauthable, omniauth_providers: [:twitter]
+    # devise :omniauthable, omniauth_providers: [:google_oauth2, :github]
 
     # You should also create an action method in this controller like this:
     # def twitter
