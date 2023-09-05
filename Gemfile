@@ -100,3 +100,6 @@ gem "omniauth-rails_csrf_protection"
 
 # aws s3 sdk
 gem "aws-sdk-s3"
+
+# github oauth
+gem "omniauth-github"
