@@ -23,42 +23,10 @@ export default class extends Controller {
     this.dropzone.on("success", (file, response) => {
       const inputField = document.querySelector("#listing_image_url");
       inputField.value = response.url;
-      this.flashMessage("Upload successful!", "success");
-    });
-
-    this.dropzone.on("error", (file, errorMessage) => {
-      if (errorMessage.error) {
-        this.flashMessage(errorMessage.error, "error");
-      } else {
-        this.flashMessage(errorMessage, "error");
-      }
     });
   }
 
   disconnect() {
     this.dropzone.destroy();
-  }
-
-  flashMessage(message, type = "success") {
-    const alertDiv = document.getElementById("alert");
-  
-    alertDiv.className = "py-2 px-3 mb-5 font-medium rounded-lg inline-block";
-  
-    let duration;
-  
-    if (type === "success") {
-      alertDiv.classList.add("bg-green-50", "text-green-500");
-      duration = 5000;
-    } else if (type === "error") {
-      alertDiv.classList.add("bg-red-50", "text-red-500");
-      duration = 10000; 
-    }
-  
-    alertDiv.textContent = message;
-    alertDiv.classList.remove("hidden");
-  
-    setTimeout(() => {
-      alertDiv.classList.add("hidden");
-    }, duration);
   }
 }
