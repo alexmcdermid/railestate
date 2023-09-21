@@ -1,9 +1,74 @@
 <div>
   <h1 class="font-bold text-4xl">Admin</h1>
-  <p>admin views</p>
-  <div>Ahoy Events: <%= @ahoy_events %></div>
-  <%= render PagyNavComponent.new(pagy: @pagy) %>
-  <div>Ahoy Visits: <%= @ahoy_visits %></div>
+  <div>Ahoy Visits Table: </div>
+  <div class="min-w-full bg-blue-900">
+    <table class="min-w-full leading-normal">
+      <thead>
+        <tr>
+          <th class="px-5 py-3 border-b-2 border-blue-700 text-left text-sm font-semibold text-white uppercase tracking-wider">
+            Visit #
+          </th>
+          <th class="px-5 py-3 border-b-2 border-blue-700 text-left text-sm font-semibold text-white uppercase tracking-wider">
+            Started At
+          </th>
+          <th class="px-5 py-3 border-b-2 border-blue-700 text-left text-sm font-semibold text-white uppercase tracking-wider">
+            User ID
+          </th>
+          <th class="px-5 py-3 border-b-2 border-blue-700 text-left text-sm font-semibold text-white uppercase tracking-wider">
+            User Email
+          </th>
+          <th class="px-5 py-3 border-b-2 border-blue-700 text-left text-sm font-semibold text-white uppercase tracking-wider">
+            Referrer
+          </th>
+          <th class="px-5 py-3 border-b-2 border-blue-700 text-left text-sm font-semibold text-white uppercase tracking-wider">
+            IP
+          </th>
+          <th class="px-5 py-3 border-b-2 border-blue-700 text-left text-sm font-semibold text-white uppercase tracking-wider">
+            OS
+          </th>
+          <th class="px-5 py-3 border-b-2 border-blue-700 text-left text-sm font-semibold text-white uppercase tracking-wider">
+            Browser
+          </th>
+          <th class="px-5 py-3 border-b-2 border-blue-700 text-left text-sm font-semibold text-white uppercase tracking-wider">
+            User Agent
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ahoy_visits.each do |visit| %>
+          <tr>
+            <td class="px-5 py-5 border-b border-blue-700 bg-blue-900 text-sm text-white">
+              <%= visit.id %>
+            </td>
+            <td class="px-5 py-5 border-b border-blue-700 bg-blue-900 text-sm text-white">
+              <%= visit.started_at %>
+            </td>
+            <td class="px-5 py-5 border-b border-blue-700 bg-blue-900 text-sm text-white">
+              <%= visit.user_id %>
+            </td>
+            <td class="px-5 py-5 border-b border-blue-700 bg-blue-900 text-sm text-white">
+              <%= visit.user.email %>
+            </td>
+            <td class="px-5 py-5 border-b border-blue-700 bg-blue-900 text-sm text-white">
+              <%= visit.referrer %>
+            </td>
+            <td class="px-5 py-5 border-b border-blue-700 bg-blue-900 text-sm text-white">
+              <%= visit.ip %>
+            </td>
+            <td class="px-5 py-5 border-b border-blue-700 bg-blue-900 text-sm text-white">
+              <%= visit.os %>
+            </td>
+            <td class="px-5 py-5 border-b border-blue-700 bg-blue-900 text-sm text-white">
+              <%= visit.browser %>
+            </td>
+            <td class="px-5 py-5 border-b border-blue-700 bg-blue-900 text-sm text-white">
+              <%= visit.user_agent %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
   <%= render PagyNavComponent.new(pagy: @pagy) %>
   </div></div>
 </div>
