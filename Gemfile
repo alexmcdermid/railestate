@@ -90,6 +90,9 @@ group :test do
   gem "webdrivers"
 end
 
+# used for tracking events and visits
+gem "ahoy_matey"
+
 # used for admin users profiles
 gem "devise"
 
