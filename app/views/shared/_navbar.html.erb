@@ -16,12 +16,35 @@
         <%= link_to 'Sign in', new_user_session_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
       <% end %>
       <%= link_to "About", about_index_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+      <% if current_user %>
+        <% captured_html = capture do %>
+          <% if current_user.avatar_url.present? %>
+            <%= image_tag(current_user.avatar_url, class: "h-10 w-10 rounded-full object-cover") %>
+          <% else %>
+            <div class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profile</div>
+          <% end %>
+        <% end %>
+        <%= link_to captured_html, users_profile_show_path %>
+      <% end %>
     </div>
   </div>
-  <%# data-controller with the name of the controller that will listen to the events on this element %>                                                                              
-  <div data-controller="menu" class="relative inline-block text-center sm:hidden">                                                                                             
 
-  <%# data-action with the event type that will trigger a toggle function on the menu controller %>                                                                                  
+  <div class="flex sm:hidden">
+    <% if current_user %>
+      <% captured_html = capture do %>
+        <% if current_user.avatar_url.present? %>
+          <%= image_tag(current_user.avatar_url, class: "h-10 w-10 rounded-full object-cover") %>
+        <% else %>
+          <div class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profile</div>
+        <% end %>
+      <% end %>
+      <%= link_to captured_html, users_profile_show_path %>
+    <% end %>
+
+    <%# data-controller with the name of the controller that will listen to the events on this element %>                                                                              
+    <div data-controller="menu" class="relative inline-block text-center">                                                                                             
+
+      <%# data-action with the event type that will trigger a toggle function on the menu controller %>                                                                                  
       <div data-action="click->menu#toggle">                                                                                                                                           
         <button type="button" class="inline-flex justify-center w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" 
           id="options-menu" aria-haspopup="true" aria-expanded="true">                                                                                                                 
@@ -33,7 +56,7 @@
         </button>                                                                                                                                                                      
       </div>                                                                                                                                                                           
 
-    <%# data-target - tells the controller which elements it should target %>                                                                                                                         
+      <%# data-target - tells the controller which elements it should target %>                                                                                                                         
       <div data-menu-target="toggleable" class="absolute right-0 hidden mt-2 bg-white shadow-lg w-auto origin-top-right rounded-md ring-1 ring-black ring-opacity-5">                    
         <div role="menu" aria-orientation="vertical" aria-labelledby="options-menu">    
           <% if admin_emails.include?(current_user&.email) %>
@@ -51,4 +74,5 @@
         </div>                                                                                                                                                                         
       </div>                                                                                                                                                                           
     </div>
+  </div>
 </nav>
