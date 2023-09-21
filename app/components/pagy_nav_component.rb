@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PagyNavComponent < ApplicationComponent
+class PagyNavComponent < ViewComponent::Base
   include Pagy::Frontend
 
   def initialize(pagy:)

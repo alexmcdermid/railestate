@@ -2,6 +2,8 @@
   <h1 class="font-bold text-4xl">Admin</h1>
   <p>admin views</p>
   <div>Ahoy Events: <%= @ahoy_events %></div>
+  <%= render PagyNavComponent.new(pagy: @pagy) %>
   <div>Ahoy Visits: <%= @ahoy_visits %></div>
+  <%= render PagyNavComponent.new(pagy: @pagy) %>
   </div></div>
 </div>
