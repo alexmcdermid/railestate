@@ -1,1 +1,4 @@
-hola
+Current user: <%= current_user.email %>
+<% if current_user.provider.present? %>
+  <br>Provider: <%= current_user.provider %>
+<% end %>
