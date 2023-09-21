@@ -2,10 +2,16 @@
 
 class ApplicationController < ActionController::Base
   include Pundit
+  helper_method :admin_emails
+
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protected
+
+  def admin_emails
+    ENV["ADMIN_EMAILS"].split(',')
+  end
 
   def authenticate_user!
     if user_signed_in?
