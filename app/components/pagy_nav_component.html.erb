@@ -1,0 +1,6 @@
+<div class="flex flex-col items-center">
+  <%= pagy_bootstrap_nav(@pagy) %>
+  <small class="m-[-0.5]">
+    Showing entries <%= @pagy.from %> to <%= @pagy.to %> of <%= @pagy.count %>.
+  </small>
+</div>
