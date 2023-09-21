@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   get "about/index"
+  get "admin/index"
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks",
     sessions: "users/sessions",

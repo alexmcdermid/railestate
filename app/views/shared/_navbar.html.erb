@@ -5,7 +5,7 @@
   <div class="hidden sm:block sm:ml-6 justify-self-end">
     <div class="flex space-x-4">
       <% if admin_emails.include?(current_user&.email) %>
-        <%= link_to "Admin", root_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+        <%= link_to "Admin", admin_index_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
       <% end %>   
       <%= link_to "Listings", root_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
       <% if user_signed_in? %>
@@ -37,7 +37,7 @@
       <div data-menu-target="toggleable" class="absolute right-0 hidden mt-2 bg-white shadow-lg w-auto origin-top-right rounded-md ring-1 ring-black ring-opacity-5">                    
         <div role="menu" aria-orientation="vertical" aria-labelledby="options-menu">    
           <% if admin_emails.include?(current_user&.email) %>
-            <%= link_to "Admin", root_path, class: "block px-4 py-5 text-4xl text-gray-700 hover:bg-gray-100 hover:text-gray-900", role: "menuitem" %>
+            <%= link_to "Admin", admin_index_path, class: "block px-4 py-5 text-4xl text-gray-700 hover:bg-gray-100 hover:text-gray-900", role: "menuitem" %>
           <% end %>                                                                                  
           <%= link_to "Listings", root_path, class: "block px-4 py-5 text-4xl text-gray-700 hover:bg-gray-100 hover:text-gray-900", role: "menuitem" %>
           <% if user_signed_in? %>
