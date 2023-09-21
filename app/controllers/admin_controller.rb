@@ -2,6 +2,8 @@ class AdminController < ApplicationController
   before_action :verify
 
   def index
+    @ahoy_events = Ahoy::Event.all
+    @ahoy_visits = Ahoy::Visit.all
   end
 
   def verify
