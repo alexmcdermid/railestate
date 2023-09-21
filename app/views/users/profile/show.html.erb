@@ -1,4 +1,12 @@
-Current user: <%= current_user.email %>
-<% if current_user.provider.present? %>
-  <br>Provider: <%= current_user.provider %>
-<% end %>
+<div>
+  <h2>Profile:</h2>
+  <div class="flex-column gap-2">
+    <div>Current user: <%= current_user.email %></div>
+    <% if current_user.provider.present? %>
+      <div>Provider: <%= current_user.provider %></div>
+    <% end %>
+    <% if current_user.avatar_url.present? %>
+      <%= image_tag(current_user.avatar_url, class: "h-auto w-auto rounded-full object-cover") %>
+    <% end %>
+  </div>
+</div>
