@@ -106,3 +106,6 @@ gem "aws-sdk-s3"
 
 # github oauth
 gem "omniauth-github"
+
+# pagination
+gem "pagy"
