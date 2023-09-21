@@ -1,7 +1,9 @@
 class AdminController < ApplicationController
+  include Pagy::Backend
   before_action :verify
 
   def index
+    @pagy, @ahoy_visits = pagy(Ahoy::Visit.all)
   end
 
   def verify

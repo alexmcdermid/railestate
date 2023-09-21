@@ -50,4 +50,10 @@ class ApplicationPolicy
 
     attr_reader :user, :scope
   end
+
+  protected
+
+  def admin_emails
+    ENV["ADMIN_EMAILS"].split(',')
+  end
 end

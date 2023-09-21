@@ -10,4 +10,12 @@ class ListingComponent < ViewComponent::Base
     @listing_creator = User.find(listing.user_id)
     @user = user
   end
+
+  def can_edit?
+    ListingPolicy.new(@user, @listing).update?
+  end
+
+  def can_delete?
+    ListingPolicy.new(@user, @listing).destroy?
+  end
 end

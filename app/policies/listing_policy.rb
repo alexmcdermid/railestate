@@ -2,15 +2,15 @@
 
 class ListingPolicy < ApplicationPolicy
   def edit?
-    record.user == user
+    record.user == user || admin_emails.include?(user.email)
   end
 
   def update?
-    record.user == user
+    record.user == user || admin_emails.include?(user.email)
   end
 
   def destroy?
-    record.user == user
+    record.user == user || admin_emails.include?(user.email)
   end
 
   class Scope < Scope
