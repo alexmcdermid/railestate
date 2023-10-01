@@ -2,7 +2,7 @@
 
 ## Overview
 
-Railestate is a web application built with Ruby on Rails 7, serving as a playground for exploring the Hotwired suite. This suite, which includes Turbo and Stimulus, allows for SPA-like interactivity within a Rails application. Tailwind CSS is used for styling, and PostgreSQL serves as the database. The application also supports OAuth authentication with Google and enables image uploads that are stored in AWS. For consistent development and deployment, Railestate is containerized using Docker.
+Railestate is a web application built with Ruby on Rails 7, serving as a playground for exploring the Hotwired suite. This suite, which includes Turbo and Stimulus, allows for SPA-like interactivity within a Rails application. Tailwind CSS is used for styling, and PostgreSQL serves as the database. The application also supports OAuth authentication with Google and enables image uploads that are stored in AWS. For consistent development and deployment, Railestate is containerized using Docker. The application also features a RESTful API for programmatic access to Railestate listings.
 
 ## Features
 
@@ -11,6 +11,8 @@ Railestate is a web application built with Ruby on Rails 7, serving as a playgro
 - **Image Uploads**: Support for uploading and storing images related to listings in AWS.
 - **SPA Functionality**: Uses Hotwire's Turbo and Stimulus for a fast, SPA-like user experience.
 - **Dockerization**: Containerized environment for consistent development and deployment.
+- **RESTful API**: Provides a RESTful API that allows you to programmatically manage and retrieve Railestate listings.
+- **Swagger Documentation**: Detailed explanation and interactive capabilities for the API, please log in and navigate to the Swagger documentation available on your profile page.
 
 ## Tech Stack
 
