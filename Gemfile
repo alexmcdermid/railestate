@@ -109,3 +109,6 @@ gem "omniauth-github"
 
 # pagination
 gem "pagy"
+
+# salting for user api key
+gem "bcrypt"

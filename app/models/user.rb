@@ -33,4 +33,15 @@ class User < ApplicationRecord
 
     user
   end
+
+  def generate_api_token
+    loop do
+      token = SecureRandom.hex(10)
+      hashed_token = BCrypt::Password.create(token)
+      unless User.exists?(api_token: hashed_token)
+        self.update(api_token: hashed_token)
+        return token  # Return the unhashed token
+      end
+    end
+  end
 end

@@ -18,4 +18,14 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/sign_in" => "devise/sessions#new", :as => :login
   end
+  resources :users do
+    member do
+      post :generate_token
+    end
+  end 
+  namespace :api do
+    namespace :v1 do
+      resources :listings, only: [:index]
+    end
+  end   
 end

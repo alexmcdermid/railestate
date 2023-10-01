@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  include Pundit
+  include Pundit::Authorization
   helper_method :admin_emails
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
