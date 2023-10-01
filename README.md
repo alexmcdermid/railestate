@@ -12,7 +12,7 @@ Railestate is a web application built with Ruby on Rails 7, serving as a playgro
 - **SPA Functionality**: Uses Hotwire's Turbo and Stimulus for a fast, SPA-like user experience.
 - **Dockerization**: Containerized environment for consistent development and deployment.
 - **RESTful API**: Provides a RESTful API that allows you to programmatically manage and retrieve Railestate listings.
-- **Swagger Documentation**: Detailed explanation and interactive capabilities for the API, please log in and navigate to the Swagger documentation available on your profile page.
+- **Swagger Documentation**: Detailed explanation and interactive capabilities for the API, please log in and navigate to the Swagger documentation available on your profile page (Coming Soon).
 
 ## Tech Stack
 
