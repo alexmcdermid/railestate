@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ListingsController < ApplicationController
-  include Pundit
-
+  include Pundit::Authorization
+  
   before_action :set_listing, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new create edit destroy]
   before_action :set_user

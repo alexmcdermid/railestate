@@ -22,5 +22,10 @@ Rails.application.routes.draw do
     member do
       post :generate_token
     end
-  end  
+  end 
+  namespace :api do
+    namespace :v1 do
+      resources :listings, only: [:index]
+    end
+  end   
 end
