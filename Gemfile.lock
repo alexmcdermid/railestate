@@ -293,6 +293,12 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
+    rswag-api (2.16.0)
+      activesupport (>= 5.2, < 8.1)
+      railties (>= 5.2, < 8.1)
+    rswag-ui (2.16.0)
+      actionpack (>= 5.2, < 8.1)
+      railties (>= 5.2, < 8.1)
     rubyzip (2.3.2)
     safely_block (0.4.1)
     selenium-webdriver (4.26.0)
@@ -379,6 +385,8 @@ DEPENDENCIES
   pundit
   rails (~> 7.0.4, >= 7.0.4.2)
   rspec-rails
+  rswag-api
+  rswag-ui
   selenium-webdriver
   sprockets-rails
   stimulus-rails
