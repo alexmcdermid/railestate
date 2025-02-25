@@ -57,6 +57,10 @@ gem "view_component"
 # live-reload
 gem "hotwire-livereload"
 
+# swagger
+gem "rswag-api"
+gem "rswag-ui"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

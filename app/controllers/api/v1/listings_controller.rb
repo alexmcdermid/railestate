@@ -19,5 +19,5 @@ class Api::V1::ListingsController < ApplicationController
       end
       user.present?
     end
-  end  
+  end
 end
