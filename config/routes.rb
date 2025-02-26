@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   get "about/index"
   get "admin/index"
   get "users/profile/show"
@@ -28,6 +30,4 @@ Rails.application.routes.draw do
       resources :listings, only: [:index]
     end
   end
-  mount Rswag::Ui::Engine => "/api-docs"
-  mount Rswag::Api::Engine => "/api-docs"
 end
