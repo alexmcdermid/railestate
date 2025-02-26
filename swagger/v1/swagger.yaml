@@ -18,9 +18,17 @@ paths:
         - Listings
       security:
         - ApiKeyAuth: []
+      parameters:
+        - in: header
+          name: Authorization
+          description: API token for authentication (format: "Token your_api_token_here")
+          required: true
+          schema:
+            type: string
+          example: "Token your_api_token_here"
       responses:
         '200':
-          description: A list of listings
+          description: A list of listings.
           content:
             application/json:
               schema:
