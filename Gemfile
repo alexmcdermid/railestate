@@ -74,6 +74,9 @@ group :development, :test do
   # rspec and factory bots for testing
   gem "factory_bot_rails"
   gem "rspec-rails"
+
+  # swagger
+  gem 'rswag-specs'
 end
 
 group :development do
