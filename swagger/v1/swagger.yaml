@@ -1,29 +1,75 @@
----
 openapi: 3.0.1
 info:
-  title: API V1
-  version: v1
+  title: Railestate API
+  version: "1.0.0"
+  description: |
+    API documentation for Railestate.
+    All endpoints are protected and require a valid API token for authorization.
+servers:
+  - url: https://railestate.herokuapp.com
 paths:
-  "/api/v1/listings":
+  /api/v1/listings:
     get:
-      summary: Retrieves all listings
+      summary: Retrieve all listings
+      description: |
+        Returns a JSON array of all listing objects.
+        This endpoint is protected; include your API token in the `Authorization` header.
       tags:
-      - Listings
+        - Listings
       security:
-      - ApiKeyAuth: []
+        - ApiKeyAuth: []
       responses:
         '200':
-          description: listings found
+          description: A list of listings
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  "$ref": "#/components/schemas/Listing"
+                  $ref: '#/components/schemas/Listing'
         '401':
-          description: unauthorized
-servers:
-- url: https://railestate.herokuapp.com
-  variables:
-    defaultHost:
-      default: www.railestate.herokuapp.com
+          description: Unauthorized – API token missing or invalid.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >
+        Provide your API token in the header using the format:
+        `Authorization: Token <your_api_token>`
+  schemas:
+    Listing:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: "Beautiful House"
+        address:
+          type: string
+          example: "123 Main St, Anytown, USA"
+        image_url:
+          type: string
+          format: uri
+          example: "https://s3.amazonaws.com/your-bucket/image.png"
+        price:
+          type: number
+          format: float
+          example: 350000.0
+        buy_or_rent:
+          type: boolean
+          example: true
+        description:
+          type: string
+          example: "A lovely three-bedroom house."
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-01-01T12:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2025-02-01T12:00:00Z"
