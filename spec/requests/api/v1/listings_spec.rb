@@ -1,7 +1,7 @@
 # spec/requests/api/v1/listings_spec.rb
 require 'swagger_helper'
 
-RSpec.describe 'Listings API', type: :request do
+RSpec.describe 'Listings API', type: :request, openapi_spec: 'v1/swagger.yaml' do
   path '/api/v1/listings' do
     get 'Retrieves all listings' do
       tags 'Listings'

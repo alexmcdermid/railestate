@@ -3,7 +3,25 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
-paths: {}
+paths:
+  "/api/v1/listings":
+    get:
+      summary: Retrieves all listings
+      tags:
+      - Listings
+      security:
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          description: listings found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Listing"
+        '401':
+          description: unauthorized
 servers:
 - url: https://{defaultHost}
   variables:
