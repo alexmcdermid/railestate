@@ -11,7 +11,7 @@ paths:
   /api/v1/listings:
     get:
       summary: Retrieve all listings
-      description: |
+      description: >
         Returns a JSON array of all listing objects.
         This endpoint is protected; include your API token in the `Authorization` header.
       tags:
@@ -21,11 +21,11 @@ paths:
       parameters:
         - in: header
           name: Authorization
-          description: API token for authentication (format: "Token your_api_token_here")
+          description: API token for authentication (format: "Token <your_api_token>")
           required: true
           schema:
             type: string
-          example: "Token your_api_token_here"
+            example: "Token your_api_token_here"
       responses:
         '200':
           description: A list of listings.
