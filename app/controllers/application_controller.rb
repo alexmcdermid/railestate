@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def admin_emails
-    ENV["ADMIN_EMAILS"].split(',')
+    ENV["ADMIN_EMAILS"]&.split(',') || []
   end
 
   def authenticate_user!
