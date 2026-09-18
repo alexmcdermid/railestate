@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   before_action :verify
 
   def index
-    @pagy, @ahoy_visits = pagy(Ahoy::Visit.all)
+    @pagy, @ahoy_visits = pagy(Ahoy::Visit.includes(:user).order(:id))
   end
 
   def verify

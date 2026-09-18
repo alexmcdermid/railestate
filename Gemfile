@@ -6,7 +6,7 @@ git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4", ">= 7.0.4.2"
+gem "rails", "~> 7.0.10"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -25,13 +25,16 @@ gem "puma", "~> 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+# Turbo Rails 2.0.13+ requires Rails 7.1.
+gem "turbo-rails", ">= 2.0.12", "< 2.0.13"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem "tailwindcss-rails"
+gem "tailwindcss-rails", "~> 3.0.0"
+# Keep the standalone compiler compatible with the existing Tailwind 3 config.
+gem "tailwindcss-ruby", "~> 3.4.19"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -49,10 +52,10 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem "bootsnap", "~> 1.18.6", require: false
 
 # view components
-gem "view_component"
+gem "view_component", "~> 3.20.0"
 
 # live-reload
 gem "hotwire-livereload"
@@ -73,7 +76,7 @@ group :development, :test do
 
   # rspec and factory bots for testing
   gem "factory_bot_rails"
-  gem "rspec-rails"
+  gem "rspec-rails", "~> 7.0.2"
 
   # swagger
   gem 'rswag-specs'
@@ -98,10 +101,10 @@ group :test do
 end
 
 # used for tracking events and visits
-gem "ahoy_matey"
+gem "ahoy_matey", "~> 5.2.1"
 
 # used for admin users profiles
-gem "devise"
+gem "devise", "~> 4.9.4"
 
 # google oauth
 gem "omniauth"
@@ -115,7 +118,7 @@ gem "aws-sdk-s3"
 gem "omniauth-github"
 
 # pagination
-gem "pagy"
+gem "pagy", "~> 9.2.2"
 
 # salting for user api key
-gem "bcrypt"
+gem "bcrypt", "~> 3.1.22"
